@@ -1,0 +1,94 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace NeuroSet
+{
+    public partial class Form1 : Form
+    {
+        Bitmap bitmap;
+        int[,] fieldState = new int[10, 10];
+        String[] fieldContent = new String[43];
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            createNewDrawField();
+            selectedSymbol.SelectedIndex = 0;
+        }
+
+        private void createNewDrawField()
+        {
+            bitmap = new Bitmap(drawField.Width, drawField.Height);
+            Graphics gr = Graphics.FromImage(bitmap);
+            for (int i = 0; i <= 300; i += 30)
+            {
+                gr.DrawLine(new Pen(Brushes.Black, 1), new Point(0, i), new Point(300, i));
+                gr.DrawLine(new Pen(Brushes.Black, 1), new Point(i, 0), new Point(i, 300));
+            }
+            drawField.Image = bitmap;
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    fieldState[i, j] = 0;
+                }
+            }
+        }
+
+        private void drawField_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = e.X / 30;
+            int y = e.Y / 30;
+            changeFieldState(x, y);
+            changeCellColor(x, y);
+            //MessageBox.Show("X="+x+"<>Y="+y);
+        }
+
+        private void changeFieldState(int x, int y)
+        {
+            if (fieldState[x, y] == 0)
+            {
+                fieldState[x, y] = 1;
+            }
+            else
+            {
+                fieldState[x, y] = 0;
+            }
+        }
+
+        private void changeCellColor(int x, int y)
+        {
+            int startX = x * 30 + 1;
+            int startY = y * 30 + 1;
+            int endX = (x + 1) * 30;
+            int endY = (y + 1) * 30;
+            Graphics gr = Graphics.FromImage(bitmap);
+            if (fieldState[x, y] == 1)
+            {
+                gr.FillRectangle(new SolidBrush(Color.Red), new Rectangle(startX, startY, (endX - startX), (endY - startY)));
+            }
+            else
+            {
+                gr.FillRectangle(new SolidBrush(Color.White), new Rectangle(startX, startY, (endX - startX), (endY - startY)));
+            }
+            drawField.Image = bitmap;
+        }
+
+        private void b_SaveSymbol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+}

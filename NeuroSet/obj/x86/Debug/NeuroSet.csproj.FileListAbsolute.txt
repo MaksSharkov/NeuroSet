@@ -1,0 +1,8 @@
+D:\MyProjects\NeuroSet\NeuroSet\bin\Debug\NeuroSet.exe
+D:\MyProjects\NeuroSet\NeuroSet\bin\Debug\NeuroSet.pdb
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.Form1.resources
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.Properties.Resources.resources
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.csproj.GenerateResource.Cache
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.exe
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.pdb
+D:\MyProjects\NeuroSet\NeuroSet\obj\x86\Debug\NeuroSet.csprojResolveAssemblyReference.cache
