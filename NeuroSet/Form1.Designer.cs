@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.b_SaveSymbol = new System.Windows.Forms.Button();
             this.b_LoadSymbol = new System.Windows.Forms.Button();
+            this.b_ClearField = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.drawField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +113,7 @@
             // 
             this.b_SaveSymbol.Location = new System.Drawing.Point(119, 317);
             this.b_SaveSymbol.Name = "b_SaveSymbol";
-            this.b_SaveSymbol.Size = new System.Drawing.Size(94, 23);
+            this.b_SaveSymbol.Size = new System.Drawing.Size(69, 23);
             this.b_SaveSymbol.TabIndex = 3;
             this.b_SaveSymbol.Text = "Сохранить";
             this.b_SaveSymbol.UseVisualStyleBackColor = true;
@@ -120,12 +121,23 @@
             // 
             // b_LoadSymbol
             // 
-            this.b_LoadSymbol.Location = new System.Drawing.Point(219, 317);
+            this.b_LoadSymbol.Location = new System.Drawing.Point(194, 317);
             this.b_LoadSymbol.Name = "b_LoadSymbol";
-            this.b_LoadSymbol.Size = new System.Drawing.Size(94, 23);
+            this.b_LoadSymbol.Size = new System.Drawing.Size(69, 23);
             this.b_LoadSymbol.TabIndex = 4;
             this.b_LoadSymbol.Text = "Загрузить";
             this.b_LoadSymbol.UseVisualStyleBackColor = true;
+            this.b_LoadSymbol.Click += new System.EventHandler(this.b_LoadSymbol_Click);
+            // 
+            // b_ClearField
+            // 
+            this.b_ClearField.Location = new System.Drawing.Point(269, 317);
+            this.b_ClearField.Name = "b_ClearField";
+            this.b_ClearField.Size = new System.Drawing.Size(44, 23);
+            this.b_ClearField.TabIndex = 5;
+            this.b_ClearField.Text = "DEL";
+            this.b_ClearField.UseVisualStyleBackColor = true;
+            this.b_ClearField.Click += new System.EventHandler(this.b_ClearField_Click);
             // 
             // Form1
             // 
@@ -133,11 +145,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(690, 403);
+            this.Controls.Add(this.b_ClearField);
             this.Controls.Add(this.b_LoadSymbol);
             this.Controls.Add(this.b_SaveSymbol);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.selectedSymbol);
             this.Controls.Add(this.drawField);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Нейро Сеть";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -154,6 +168,7 @@
         private System.Windows.Forms.ComboBox selectedSymbol;
         private System.Windows.Forms.Button b_SaveSymbol;
         private System.Windows.Forms.Button b_LoadSymbol;
+        private System.Windows.Forms.Button b_ClearField;
 
 
 

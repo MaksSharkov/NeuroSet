@@ -24,6 +24,10 @@ namespace NeuroSet
         {
             createNewDrawField();
             selectedSymbol.SelectedIndex = 0;
+            for (int i = 0; i < 43; i++)
+            {
+                fieldContent[i] = "";
+            }
         }
 
         private void createNewDrawField()
@@ -87,7 +91,45 @@ namespace NeuroSet
 
         private void b_SaveSymbol_Click(object sender, EventArgs e)
         {
+            int symbolIndex = selectedSymbol.SelectedIndex;
+            String symbolContent = "";
+            for (int x = 0; x < 10; x++)
+            {
+                for (int y = 0; y < 10; y++)
+                {
+                    symbolContent += fieldState[x, y];
+                }
+            }
+            fieldContent[symbolIndex] = symbolContent;
+        }
 
+        private void b_ClearField_Click(object sender, EventArgs e)
+        {
+            createNewDrawField();
+        }
+
+        private void b_LoadSymbol_Click(object sender, EventArgs e)
+        {
+            int symbolIndex = selectedSymbol.SelectedIndex;
+            String symbolContent = fieldContent[symbolIndex];
+            int result = String.Compare(symbolContent, "");
+            if (result != 0)
+            {
+                int ind = 0;
+                for (int x = 0; x < 10; x++)
+                {
+                    for (int y = 0; y < 10; y++)
+                    {
+                        fieldState[x, y] = (int)Char.GetNumericValue(symbolContent[ind]);
+                        ind += 1;
+                        changeCellColor(x, y);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Данный символ не содержится в памяти!");
+            }
         }
 
     }
