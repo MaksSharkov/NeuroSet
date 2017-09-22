@@ -34,6 +34,8 @@
             this.b_SaveSymbol = new System.Windows.Forms.Button();
             this.b_LoadSymbol = new System.Windows.Forms.Button();
             this.b_ClearField = new System.Windows.Forms.Button();
+            this.b_SaveInFile = new System.Windows.Forms.Button();
+            this.b_ReadFromFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.drawField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,12 +141,34 @@
             this.b_ClearField.UseVisualStyleBackColor = true;
             this.b_ClearField.Click += new System.EventHandler(this.b_ClearField_Click);
             // 
+            // b_SaveInFile
+            // 
+            this.b_SaveInFile.Location = new System.Drawing.Point(15, 346);
+            this.b_SaveInFile.Name = "b_SaveInFile";
+            this.b_SaveInFile.Size = new System.Drawing.Size(133, 23);
+            this.b_SaveInFile.TabIndex = 6;
+            this.b_SaveInFile.Text = "Сохранить в файл";
+            this.b_SaveInFile.UseVisualStyleBackColor = true;
+            this.b_SaveInFile.Click += new System.EventHandler(this.b_SaveInFile_Click);
+            // 
+            // b_ReadFromFile
+            // 
+            this.b_ReadFromFile.Location = new System.Drawing.Point(180, 346);
+            this.b_ReadFromFile.Name = "b_ReadFromFile";
+            this.b_ReadFromFile.Size = new System.Drawing.Size(133, 23);
+            this.b_ReadFromFile.TabIndex = 7;
+            this.b_ReadFromFile.Text = "Загрузить из файла";
+            this.b_ReadFromFile.UseVisualStyleBackColor = true;
+            this.b_ReadFromFile.Click += new System.EventHandler(this.b_ReadFromFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(690, 403);
+            this.Controls.Add(this.b_ReadFromFile);
+            this.Controls.Add(this.b_SaveInFile);
             this.Controls.Add(this.b_ClearField);
             this.Controls.Add(this.b_LoadSymbol);
             this.Controls.Add(this.b_SaveSymbol);
@@ -153,6 +177,7 @@
             this.Controls.Add(this.drawField);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Нейро Сеть";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.drawField)).EndInit();
@@ -169,6 +194,8 @@
         private System.Windows.Forms.Button b_SaveSymbol;
         private System.Windows.Forms.Button b_LoadSymbol;
         private System.Windows.Forms.Button b_ClearField;
+        private System.Windows.Forms.Button b_SaveInFile;
+        private System.Windows.Forms.Button b_ReadFromFile;
 
 
 

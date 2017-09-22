@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace NeuroSet
 {
@@ -129,6 +130,35 @@ namespace NeuroSet
             else
             {
                 MessageBox.Show("Данный символ не содержится в памяти!");
+            }
+        }
+
+        private void b_SaveInFile_Click(object sender, EventArgs e)
+        {
+            StreamWriter writer = new StreamWriter(new FileStream("neuroset.txt", FileMode.Create));
+            for (int i = 0; i < 43; i++)
+            {
+                writer.WriteLine(fieldContent[i]);
+            }
+            writer.Close();
+            MessageBox.Show("Сохранение данных завершено!");
+        }
+
+        private void b_ReadFromFile_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("neuroset.txt"))
+            {
+                StreamReader reader = new StreamReader(new FileStream("neuroset.txt", FileMode.Open));
+                for (int i = 0; i < 43; i++)
+                {
+                    fieldContent[i] = reader.ReadLine();
+                }
+                reader.Close();
+                MessageBox.Show("Чтение данных завершено!");
+            }
+            else
+            {
+                MessageBox.Show("Файла с данными для нейросети не существует!");
             }
         }
 
